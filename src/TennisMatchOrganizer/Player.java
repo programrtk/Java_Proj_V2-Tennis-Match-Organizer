@@ -33,6 +33,8 @@ public class Player {
         this.gender = gender;
     }
     
-    
+    public String toString(){
+        return lastName+", "+ firstName+", "+gender+", "+rating;
+    }
     
 }

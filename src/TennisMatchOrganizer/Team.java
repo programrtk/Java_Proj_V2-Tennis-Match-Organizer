@@ -6,6 +6,7 @@
 package TennisMatchOrganizer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,6 +26,9 @@ public class Team {
         players.add(new Player(lastName, firstName, gender));
     }
     
-    
+    public ArrayList<Player> getPlayerList()
+    {
+        return players;
+    }
     
 }
