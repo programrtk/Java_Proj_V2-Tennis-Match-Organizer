@@ -14,6 +14,8 @@ public class Match {
     private int player1Id;
     private int player2Id;
     private String location;
+    
+    //String variables of date and time will be converted to integer when needed.
     private String date;
     private String time;
     private int winnerId;
