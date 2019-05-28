@@ -34,7 +34,7 @@ public class Player {
     }
     
     public String toString(){
-        return firstName+", "+ lastName+", "+gender+", "+rating;
+        return lastName+", "+ firstName+", "+gender+", "+rating + "; ";
     }
     
 }
