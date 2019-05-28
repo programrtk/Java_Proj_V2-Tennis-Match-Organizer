@@ -17,7 +17,8 @@ public class Team {
     private ArrayList<Player> players;
     
     
-    public Team(){
+    public Team()
+    {
         players = new ArrayList<Player>();
     }
     
@@ -26,9 +27,14 @@ public class Team {
         players.add(new Player(lastName, firstName, gender));
     }
     
-    public ArrayList<Player> getPlayerList()
+    public void /*ArrayList<Player>*/ getPlayerList()
     {
-        return players;
+        //return players;
+        System.out.println("\nHere are a list of players on the team: ");
+        for(int i = 0; i < players.size(); i++)
+        {
+            System.out.println(players.get(i).toString());
+        }
     }
     
 }

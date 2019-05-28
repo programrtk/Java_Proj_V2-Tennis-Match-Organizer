@@ -19,6 +19,7 @@ public class Runner {
         
         Scanner keyboard = new Scanner(System.in);
         
+        
         System.out.println("Would you like to add a player to the team? y/n");
         String ans = keyboard.nextLine();
                 //keyboard.next().charAt(0);
