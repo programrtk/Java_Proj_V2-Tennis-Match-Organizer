@@ -20,10 +20,28 @@ public class Runner {
         Scanner keyboard = new Scanner(System.in);
         
         
-        System.out.println("Would you like to add a player to the team? y/n");
-        String ans = keyboard.nextLine();
+        //System.out.println("Would you like to add a player to the team? y/n");
+        //String ans = keyboard.nextLine();
                 //keyboard.next().charAt(0);
         
+        //test
+        team1.addPlayer("player1", "one", 'm');
+        team1.addPlayer("player2", "two", 'f');
+        team1.addPlayer("player3", "three", 'm');
+        team1.getPlayerList();
+        
+        team1.setMatch("player1", "player2", "Torry Pines", "5/28/2019", "5pm");
+        team1.setMatch("player2", "player3", "Torry Pines", "5/29/2019", "3pm");
+        team1.setMatch("player1", "player3", "Torry Pines", "5/30/2019", "8pm");
+        team1.getMatchList();
+        
+        team1.enterMatchWinner("player1", "player2", "player1");
+        team1.enterMatchWinner("player2", "player3", "player2");
+        team1.enterMatchWinner("player1", "player3", "player2");
+        team1.getMatchWinnerList();
+        
+        
+        /*
         if(ans.compareTo("y") == 0)
         {
             System.out.println("Enter the first name");
@@ -39,7 +57,7 @@ public class Runner {
             
             team1.getPlayerList();
         }
-        
+        */
         
         
     }
