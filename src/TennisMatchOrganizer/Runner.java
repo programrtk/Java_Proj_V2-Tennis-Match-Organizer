@@ -5,7 +5,12 @@
  */
 package TennisMatchOrganizer;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  *
@@ -13,7 +18,7 @@ import java.util.Scanner;
  */
 public class Runner {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         
         Team team1 = new Team();
         
@@ -31,6 +36,37 @@ public class Runner {
         team1.addPlayer("player2", "two", 'f');
         team1.addPlayer("player3", "three", 'm');
         team1.getPlayerList();
+        
+        //this creates a file and writes a list of each player's information to it
+        try{
+            PrintWriter write = new PrintWriter("PlayerList.txt");
+            
+            for(int i = 0; i < team1.getPlayerListLength(); i++)
+            {
+                write.println(team1.getPlayer(i));
+            }
+            write.close();
+            
+        }catch(IOException e){
+            System.out.println("IO Exception");
+        }
+        
+        //this reads the contents of the file created above
+        try{
+            FileReader file = new FileReader("PlayerList.txt");
+            BufferedReader read = new BufferedReader(file);
+            
+            while(read.readLine() != null)
+            {
+                System.out.println(read.readLine());
+            }
+            read.close();
+            
+        }catch(IOException e){
+            System.out.println("File is not found");
+        }
+        
+        
         
         
         //this is extra

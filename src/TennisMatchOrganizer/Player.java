@@ -36,5 +36,10 @@ public class Player extends PlayerInfo implements Printable{
     public String toString(){
         return getLastName()+", "+ getFirstName()+", "+getGender();
     }
+
+    @Override
+    public int NumOfPlayers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

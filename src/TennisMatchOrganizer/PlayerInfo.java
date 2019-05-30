@@ -9,7 +9,7 @@ package TennisMatchOrganizer;
  *
  * @author Sumit
  */
-public abstract class PlayerInfo {
+    public abstract class PlayerInfo {
     
     private String lastName = "";
     private String firstName = "";
@@ -45,7 +45,7 @@ public abstract class PlayerInfo {
         this.gender = gender;
     }
     
-    
+    public abstract int NumOfPlayers();
     
     
     

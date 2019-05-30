@@ -41,6 +41,16 @@ public class Team {
         matchWinner.add(new Match(player1FirstName, player2FirstName, winner));
     }
     
+    public Player getPlayer(int i){
+        return players.get(i);
+    }
+    
+    public int getPlayerListLength()
+    {
+        return players.size();
+    }
+            
+    
     public void /*ArrayList<Player>*/ getPlayerList()
     {
         //return players;
