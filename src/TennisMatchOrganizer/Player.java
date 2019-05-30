@@ -31,12 +31,6 @@ public class Player extends PlayerInfo implements Printable{
     
     public Player(String lastName, String firstName, char gender){
         super(lastName, firstName, gender);
-        
-        /*
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.gender = gender;
-        */
     }
     
     public String toString(){

@@ -25,11 +25,15 @@ public class Runner {
                 //keyboard.next().charAt(0);
         
         //test
+        
+//-->   //this is the real test of the requirements
         team1.addPlayer("player1", "one", 'm');
         team1.addPlayer("player2", "two", 'f');
         team1.addPlayer("player3", "three", 'm');
         team1.getPlayerList();
         
+        
+        //this is extra
         team1.setMatch("player1", "player2", "Torry Pines", "5/28/2019", "5pm");
         team1.setMatch("player2", "player3", "Torry Pines", "5/29/2019", "3pm");
         team1.setMatch("player1", "player3", "Torry Pines", "5/30/2019", "8pm");
