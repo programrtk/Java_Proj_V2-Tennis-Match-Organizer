@@ -9,10 +9,9 @@ package TennisMatchOrganizer;
  *
  * @author Sumit
  */
-public interface ReadWriteable {
+public interface Creatable {
      
-    public void createFile();
+    public void createFile(String fileName);
     
-    public void closeFile();
     
 }

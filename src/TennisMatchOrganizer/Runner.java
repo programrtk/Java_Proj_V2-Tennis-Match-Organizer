@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  * @author guptas5279
  */
-public class Runner implements ReadWriteable{
+public class Runner implements Creatable{
     
     public static void main(String[] args) throws FileNotFoundException {
         
@@ -106,14 +106,7 @@ public class Runner implements ReadWriteable{
     }
 
     @Override
-    public void createFile() {
+    public void createFile(String fileName) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void closeFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
 }

@@ -9,7 +9,7 @@ package TennisMatchOrganizer;
  *
  * @author guptas5279
  */
-public class Player extends PlayerInfo{
+public class Player extends PlayerInfo implements DisplayAllInfo{
     
     private String lastName = "";
     private String firstName = "";
@@ -34,6 +34,10 @@ public class Player extends PlayerInfo{
     }
     
     public String toString(){
+        return getLastName()+", "+ getFirstName()+", "+getGender();
+    }
+    
+    public String DisplayInfo(){
         return getLastName()+", "+ getFirstName()+", "+getGender();
     }
 

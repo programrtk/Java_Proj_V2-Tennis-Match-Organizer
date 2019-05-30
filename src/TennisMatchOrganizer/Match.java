@@ -9,7 +9,7 @@ package TennisMatchOrganizer;
  *
  * @author guptas5279
  */
-public class Match{
+public class Match implements DisplayAllInfo{
     
     private int player1Id;
     private int player2Id;
