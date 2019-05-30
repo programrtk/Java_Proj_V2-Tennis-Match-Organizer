@@ -9,7 +9,7 @@ package TennisMatchOrganizer;
  *
  * @author guptas5279
  */
-public class Match implements Printable{
+public class Match{
     
     private int player1Id;
     private int player2Id;

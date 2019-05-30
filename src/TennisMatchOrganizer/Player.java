@@ -9,7 +9,7 @@ package TennisMatchOrganizer;
  *
  * @author guptas5279
  */
-public class Player extends PlayerInfo implements Printable{
+public class Player extends PlayerInfo{
     
     private String lastName = "";
     private String firstName = "";

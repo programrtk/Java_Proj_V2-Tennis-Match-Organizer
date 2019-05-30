@@ -7,10 +7,12 @@ package TennisMatchOrganizer;
 
 /**
  *
- * @author SumitGaurav
+ * @author Sumit
  */
-public interface Printable {
+public interface ReadWriteable {
+     
+    public void createFile();
     
-    public String toString();
+    public void closeFile();
     
 }

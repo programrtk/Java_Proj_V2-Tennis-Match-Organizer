@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  * @author guptas5279
  */
-public class Runner {
+public class Runner implements ReadWriteable{
     
     public static void main(String[] args) throws FileNotFoundException {
         
@@ -39,12 +39,14 @@ public class Runner {
         
         //this creates a file and writes a list of each player's information to it
         try{
+            //createFile
             PrintWriter write = new PrintWriter("PlayerList.txt");
             
             for(int i = 0; i < team1.getPlayerListLength(); i++)
             {
                 write.println(team1.getPlayer(i));
             }
+            //closefile
             write.close();
             
         }catch(IOException e){
@@ -53,6 +55,7 @@ public class Runner {
         
         //this reads the contents of the file created above
         try{
+            
             FileReader file = new FileReader("PlayerList.txt");
             BufferedReader read = new BufferedReader(file);
             
@@ -101,5 +104,16 @@ public class Runner {
         
         
     }
-    
+
+    @Override
+    public void createFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void closeFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }
