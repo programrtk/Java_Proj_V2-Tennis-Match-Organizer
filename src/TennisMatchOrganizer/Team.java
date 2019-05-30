@@ -56,7 +56,7 @@ public class Team {
         System.out.println("\nHere is a list of matches");
         for(int i = 0; i < matchList.size(); i++)
         {
-            System.out.println(matchList.get(i).toStringMatches());
+            System.out.println(matchList.get(i).toString());
         }
     }
     

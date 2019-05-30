@@ -9,7 +9,7 @@ package TennisMatchOrganizer;
  *
  * @author guptas5279
  */
-public class Match {
+public class Match implements Printable{
     
     private int player1Id;
     private int player2Id;
@@ -40,7 +40,8 @@ public class Match {
         this.winner = winner;
     }
     
-    public String toStringMatches()
+    //Prints out match info
+    public String toString()
     {
         return player1FirstName +" vs. "+ player2FirstName +"; at location: "+location +", date: "+date+", time: "+time;
     }
