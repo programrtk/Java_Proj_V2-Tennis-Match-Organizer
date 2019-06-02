@@ -45,7 +45,7 @@ package TennisMatchOrganizer;
         this.gender = gender;
     }
     
-    public abstract int NumOfPlayers();
+    public abstract String displayPlayerInfo();
     
     
     

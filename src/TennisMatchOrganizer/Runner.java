@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  * @author guptas5279
  */
-public class Runner implements Creatable{
+public class Runner{
     
     public static void main(String[] args) throws FileNotFoundException {
         
@@ -105,8 +105,5 @@ public class Runner implements Creatable{
         
     }
 
-    @Override
-    public void createFile(String fileName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

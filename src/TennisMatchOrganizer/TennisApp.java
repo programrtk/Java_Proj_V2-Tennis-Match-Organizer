@@ -5,12 +5,16 @@
  */
 package TennisMatchOrganizer;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author SumitGaurav
  */
 public class TennisApp extends javax.swing.JFrame {
-
+    
+    
+    private ArrayList<Player> players = new ArrayList<Player>();
     /**
      * Creates new form TennisApp
      */
@@ -48,7 +52,7 @@ public class TennisApp extends javax.swing.JFrame {
         genderLbl.setText("Enter Player's Gender (m/f):");
 
         descriptionLbl.setFont(new java.awt.Font("Nirmala UI Semilight", 0, 13)); // NOI18N
-        descriptionLbl.setText("Created By Sumit Gupta; Enter players on team");
+        descriptionLbl.setText("Created By Sumit Gupta; Enter players on team and view them");
 
         enterPlayerBtn.setText("Enter Player");
         enterPlayerBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +159,9 @@ public class TennisApp extends javax.swing.JFrame {
         String lastName = lastnameFld.getText();
         String gender = genderFld.getText();
         if(firstName.length() > 0 && lastName.length() > 0 && gender.length() > 0){
-            
+            players.add(new Player(firstName, lastName, gender.charAt(0)));
+        }else{
+            System.out.println("Fill all the boxes");
         }
     }//GEN-LAST:event_enterPlayerBtnActionPerformed
 

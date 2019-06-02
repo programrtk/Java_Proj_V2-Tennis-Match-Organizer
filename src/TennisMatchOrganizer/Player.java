@@ -9,7 +9,7 @@ package TennisMatchOrganizer;
  *
  * @author guptas5279
  */
-public class Player extends PlayerInfo implements DisplayAllInfo{
+public class Player extends PlayerInfo{
     
     private String lastName = "";
     private String firstName = "";
@@ -33,17 +33,14 @@ public class Player extends PlayerInfo implements DisplayAllInfo{
         super(lastName, firstName, gender);
     }
     
+    
     public String toString(){
         return getLastName()+", "+ getFirstName()+", "+getGender();
     }
     
-    public String DisplayInfo(){
+    
+    public String displayPlayerInfo() {
         return getLastName()+", "+ getFirstName()+", "+getGender();
-    }
-
-    @Override
-    public int NumOfPlayers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author guptas5279
  */
-public class Team {
+public class Team implements Groupable{
     
     private ArrayList<Player> players;
     private ArrayList<Match> matchList;
@@ -57,7 +57,7 @@ public class Team {
         System.out.println("\nHere is a list of players on the team: ");
         for(int i = 0; i < players.size(); i++)
         {
-            System.out.println(players.get(i).toString());
+            System.out.println(players.get(i).displayPlayerInfo());
         }
     }
     

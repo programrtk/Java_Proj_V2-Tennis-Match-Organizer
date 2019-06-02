@@ -9,9 +9,12 @@ package TennisMatchOrganizer;
  *
  * @author Sumit
  */
-public interface Creatable {
-     
-    public void createFile(String fileName);
+public interface Groupable {
     
+    public void addPlayer(String lastName, String firstName, char gender);
+    
+    public Player getPlayer(int i);
+    
+    public int getPlayerListLength();
     
 }
