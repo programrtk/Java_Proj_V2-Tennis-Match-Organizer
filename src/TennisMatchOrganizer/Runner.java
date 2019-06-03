@@ -18,32 +18,19 @@ import java.io.IOException;
  */
 public class Runner{
     
-    public static void main(String[] args) throws FileNotFoundException {
-        
-        Team team1 = new Team();
-        
-        Scanner keyboard = new Scanner(System.in);
-        
-        
-        //System.out.println("Would you like to add a player to the team? y/n");
-        //String ans = keyboard.nextLine();
-                //keyboard.next().charAt(0);
-        
-        //test
-        
-//-->   //this is the real test of the requirements
-        team1.addPlayer("player1", "one", 'm');
-        team1.addPlayer("player2", "two", 'f');
-        team1.addPlayer("player3", "three", 'm');
-        team1.getPlayerList();
-        
+    private static Team team1;
+    
+    private static void writeToFile()
+    {
         //this creates a file and writes a list of each player's information to it
         try{
             //createFile
             PrintWriter write = new PrintWriter("PlayerList.txt");
+            System.out.println("\ntest for write in and read from files");
             
             for(int i = 0; i < team1.getPlayerListLength(); i++)
             {
+                write.println();
                 write.println(team1.getPlayer(i));
             }
             //closefile
@@ -52,7 +39,10 @@ public class Runner{
         }catch(IOException e){
             System.out.println("IO Exception");
         }
-        
+    }
+    
+    private static void readFromFile()
+    {
         //this reads the contents of the file created above
         try{
             
@@ -68,11 +58,73 @@ public class Runner{
         }catch(IOException e){
             System.out.println("File is not found");
         }
+    }
+    
+    public static void main(String[] args) throws FileNotFoundException {
+        
+        team1 = new Team();
+        
+        //Scanner keyboard = new Scanner(System.in);
+        
+        
+        //System.out.println("Would you like to add a player to the team? y/n");
+        //String ans = keyboard.nextLine();
+                //keyboard.next().charAt(0);
+        
+        //test
+        
+//-->   //this is the real test of the requirements
+        
+        System.out.println("test for class methods");
+        team1.addPlayer("player1", "one", 'm');
+        team1.addPlayer("player2", "two", 'f');
+        team1.addPlayer("player3", "three", 'm');
+        team1.printPlayerList();
+        
+        //this creates a file and writes a list of each player's information to it
+        writeToFile();
+        /*
+        try{
+            //createFile
+            PrintWriter write = new PrintWriter("PlayerList.txt");
+            System.out.println("\ntest for write in and read from files\n");
+            for(int i = 0; i < team1.getPlayerListLength(); i++)
+            {
+                write.println();
+                write.println(team1.getPlayer(i));
+            }
+            //closefile
+            write.close();
+            
+        }catch(IOException e){
+            System.out.println("IO Exception");
+        }*/
+        
+        
+        //this reads the contents of the file created above
+        readFromFile();
+        /*
+        try{
+            
+            FileReader file = new FileReader("PlayerList.txt");
+            BufferedReader read = new BufferedReader(file);
+            
+            while(read.readLine() != null)
+            {
+                System.out.println(read.readLine());
+            }
+            read.close();
+            
+        }catch(IOException e){
+            System.out.println("File is not found");
+        }*/
         
         
         
         
         //this is extra
+        System.out.println("\n----------------------------------");
+        System.out.println("The tests below are extra");
         team1.setMatch("player1", "player2", "Torry Pines", "5/28/2019", "5pm");
         team1.setMatch("player2", "player3", "Torry Pines", "5/29/2019", "3pm");
         team1.setMatch("player1", "player3", "Torry Pines", "5/30/2019", "8pm");

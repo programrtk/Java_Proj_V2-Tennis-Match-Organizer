@@ -5,6 +5,10 @@
  */
 package TennisMatchOrganizer;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -12,14 +16,57 @@ import java.util.ArrayList;
  * @author SumitGaurav
  */
 public class TennisApp extends javax.swing.JFrame {
+
+    
+    private ArrayList<Player> players;
     
     
-    private ArrayList<Player> players = new ArrayList<Player>();
+    private void writeToFile()
+    {
+        //this creates a file and writes a list of each player's information to it
+        try{
+            //createFile
+            PrintWriter write = new PrintWriter("GUI_PlayerList.txt");
+            System.out.println("\ntest for write in and read from files\n");
+            for(int i = 0; i < players.size(); i++)
+            {
+                write.println();
+                write.println(players.get(i));
+            }
+            //closefile
+            write.close();
+            
+        }catch(IOException e){
+            System.out.println("IO Exception");
+        }
+    }
+    
+    private static void readFromFile()
+    {
+        //this reads the contents of the file created above
+        try{
+            
+            FileReader file = new FileReader("GUI_PlayerList.txt");
+            BufferedReader read = new BufferedReader(file);
+            
+            while(read.readLine() != null)
+            {
+                System.out.println(read.readLine());
+            }
+            read.close();
+            
+        }catch(IOException e){
+            System.out.println("File is not found");
+        }
+    }
+    
+    
     /**
      * Creates new form TennisApp
      */
     public TennisApp() {
         initComponents();
+        players = new ArrayList<Player>();
     }
 
     /**
@@ -68,6 +115,11 @@ public class TennisApp extends javax.swing.JFrame {
         });
 
         viewPlayersBtn.setText("View Player List");
+        viewPlayersBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPlayersBtnActionPerformed(evt);
+            }
+        });
 
         TitleLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         TitleLbl.setText("Tennis Match Organizer");
@@ -160,10 +212,16 @@ public class TennisApp extends javax.swing.JFrame {
         String gender = genderFld.getText();
         if(firstName.length() > 0 && lastName.length() > 0 && gender.length() > 0){
             players.add(new Player(firstName, lastName, gender.charAt(0)));
+            writeToFile();
         }else{
             System.out.println("Fill all the boxes");
         }
     }//GEN-LAST:event_enterPlayerBtnActionPerformed
+
+    private void viewPlayersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPlayersBtnActionPerformed
+        // TODO add your handling code here:
+        new PlayerListFrame().setVisible(true);
+    }//GEN-LAST:event_viewPlayersBtnActionPerformed
 
     /**
      * @param args the command line arguments

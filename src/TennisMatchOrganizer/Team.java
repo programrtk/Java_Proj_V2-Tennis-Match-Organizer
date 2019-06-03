@@ -14,20 +14,20 @@ import java.util.List;
  */
 public class Team implements Groupable{
     
-    private ArrayList<Player> players;
+    private ArrayList<Player> playerList;
     private ArrayList<Match> matchList;
     private ArrayList<Match> matchWinner;
     
     public Team()
     {
-        players = new ArrayList<Player>();
+        playerList = new ArrayList<Player>();
         matchList = new ArrayList<Match>();
         matchWinner = new ArrayList<Match>();
     }
     
     public void addPlayer(String lastName, String firstName, char gender)
     {
-        players.add(new Player(lastName, firstName, gender));
+        playerList.add(new Player(lastName, firstName, gender));
     }
     
     public void setMatch(String player1FirstName, String player2FirstName, String location, String date, String time)
@@ -42,22 +42,22 @@ public class Team implements Groupable{
     }
     
     public Player getPlayer(int i){
-        return players.get(i);
+        return playerList.get(i);
     }
     
     public int getPlayerListLength()
     {
-        return players.size();
+        return playerList.size();
     }
             
     
-    public void /*ArrayList<Player>*/ getPlayerList()
+    public void /*ArrayList<Player>*/ printPlayerList()
     {
-        //return players;
+        //return playerList;
         System.out.println("\nHere is a list of players on the team: ");
-        for(int i = 0; i < players.size(); i++)
+        for(int i = 0; i < playerList.size(); i++)
         {
-            System.out.println(players.get(i).displayPlayerInfo());
+            System.out.println(playerList.get(i).displayPlayerInfo());
         }
     }
     

@@ -13,7 +13,7 @@ public interface Groupable {
     
     public void addPlayer(String lastName, String firstName, char gender);
     
-    public Player getPlayer(int i);
+    public void printPlayerList();
     
     public int getPlayerListLength();
     
