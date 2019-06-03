@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author SumitGaurav
+ * @author Sumit
  */
 public class TennisApp extends javax.swing.JFrame {
 

@@ -5,17 +5,25 @@
  */
 package TennisMatchOrganizer;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
- * @author SumitGaurav
+ * @author Sumit
  */
 public class PlayerListFrame extends javax.swing.JFrame {
 
+    private ArrayList<String> players;
     /**
      * Creates new form PlayerListFrame
      */
     public PlayerListFrame() {
         initComponents();
+        players = new ArrayList<String>();
     }
 
     /**
@@ -29,21 +37,16 @@ public class PlayerListFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         playerListLbl = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        playerList = new javax.swing.JList();
         UpdateBtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        display_Pane = new javax.swing.JTextPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Player_JList = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         playerListLbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         playerListLbl.setText("List of Players");
-
-        playerList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(playerList);
 
         UpdateBtn.setText("Update List");
         UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +54,15 @@ public class PlayerListFrame extends javax.swing.JFrame {
                 UpdateBtnActionPerformed(evt);
             }
         });
+
+        jScrollPane2.setViewportView(display_Pane);
+
+        Player_JList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(Player_JList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,12 +74,15 @@ public class PlayerListFrame extends javax.swing.JFrame {
                         .addGap(125, 125, 125)
                         .addComponent(playerListLbl))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(UpdateBtn)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,9 +90,15 @@ public class PlayerListFrame extends javax.swing.JFrame {
                 .addComponent(playerListLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UpdateBtn)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,7 +117,29 @@ public class PlayerListFrame extends javax.swing.JFrame {
 
     private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
         // TODO add your handling code here:
-        //playerList.add(null, this)
+        try{
+            
+            File file = new File("GUI_PlayerList.txt");
+            BufferedReader read = new BufferedReader(new FileReader(file));
+            
+            String aPlayer;
+            while((aPlayer = read.readLine()) != null)
+            {
+                System.out.println(aPlayer);
+                //players.add(read.readLine());
+                players.add(aPlayer);
+            }
+            read.close();
+            
+        }catch(IOException e){
+            System.out.println("File is not found");
+        }
+        
+        for(String p : players)
+        {
+            display_Pane.
+        }
+        
     }//GEN-LAST:event_UpdateBtnActionPerformed
 
     /**
@@ -135,10 +178,12 @@ public class PlayerListFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList Player_JList;
     private javax.swing.JButton UpdateBtn;
+    private javax.swing.JTextPane display_Pane;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList playerList;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel playerListLbl;
     // End of variables declaration//GEN-END:variables
 }
