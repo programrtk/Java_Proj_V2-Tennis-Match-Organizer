@@ -99,7 +99,8 @@ public class PlayerListFrame extends javax.swing.JFrame {
 
     private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
         // TODO add your handling code here:
-        display_Pane.
+        //display_Pane.removeAll();
+        //display_Pane.repaint();
         try{
             
             File file = new File("GUI_PlayerList.txt");
