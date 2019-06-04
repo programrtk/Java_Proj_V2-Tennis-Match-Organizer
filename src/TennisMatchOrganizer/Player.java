@@ -47,6 +47,13 @@ public class Player extends PlayerInfo{
         }
         return false;
     }
+    
+    public boolean isFemale(){
+        if(getGender() == 'f'){
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public int age() {

@@ -23,6 +23,9 @@ public class TennisApp extends javax.swing.JFrame {
     
     static boolean isViewed = false;
     
+    private int numOfMales;
+    private int numOfFemales;
+    
     //private ArrayList<String> players_Data;
     
     private void writeToFile()
@@ -94,6 +97,8 @@ public class TennisApp extends javax.swing.JFrame {
         initComponents();
         players = new ArrayList<Player>();
         //players_Data = new ArrayList<String>();
+        numOfMales = 0;
+        numOfFemales = 0;
     }
 
     /**
@@ -231,7 +236,7 @@ public class TennisApp extends javax.swing.JFrame {
     private void firstNameFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameFldActionPerformed
-
+    
     private void enterPlayerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterPlayerBtnActionPerformed
         // TODO add your handling code here:        
         String firstName = firstNameFld.getText();
@@ -245,7 +250,7 @@ public class TennisApp extends javax.swing.JFrame {
             System.out.println("Fill all the boxes");
         }
     }//GEN-LAST:event_enterPlayerBtnActionPerformed
-
+    
     private void viewPlayersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPlayersBtnActionPerformed
         // TODO add your handling code here:
         writeToFile();
@@ -253,9 +258,29 @@ public class TennisApp extends javax.swing.JFrame {
             new PlayerListFrame().setVisible(true);
             isViewed = true;
         }
-        
+        for(int i = 0; i < players.size(); i++){
+            if(players.get(i).isMale()){
+                numOfMales++;
+                System.out.println("Male added");
+            }else if(players.get(i).isFemale()){
+                numOfFemales++;
+                System.out.println("Female added");
+            }
+        }
     }//GEN-LAST:event_viewPlayersBtnActionPerformed
 
+    public int getNumOfMales()
+    {
+        System.out.println(numOfMales);
+        return numOfMales;
+    }
+    
+    public int getNumOfFemales()
+    {
+        System.out.println(numOfFemales);
+        return numOfFemales;
+    }
+    
     /**
      * @param args the command line arguments
      */

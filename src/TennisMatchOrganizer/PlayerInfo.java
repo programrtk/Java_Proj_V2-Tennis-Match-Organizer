@@ -49,6 +49,8 @@ package TennisMatchOrganizer;
     
     public abstract boolean isMale();
     
+    public abstract boolean isFemale();
+    
     public abstract int age();
     
 }

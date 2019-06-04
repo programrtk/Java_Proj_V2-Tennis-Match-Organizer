@@ -20,12 +20,15 @@ public class PlayerListFrame extends javax.swing.JFrame {
     private ArrayList<String> players;
     static boolean isAccepted = true;
     
+    TennisApp playersInfo;
+    
     /**
      * Creates new form PlayerListFrame
      */
     public PlayerListFrame() {
         initComponents();
         players = new ArrayList<String>();
+        playersInfo = new TennisApp();
     }
 
     /**
@@ -42,6 +45,12 @@ public class PlayerListFrame extends javax.swing.JFrame {
         UpdateBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         display_Pane = new javax.swing.JTextPane();
+        numOfMales_Lbl = new javax.swing.JLabel();
+        numOfFemales_Lbl = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        malesNum_Pane = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        femalesNum_Pane = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +66,16 @@ public class PlayerListFrame extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(display_Pane);
 
+        numOfMales_Lbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        numOfMales_Lbl.setText("Num. of males: ");
+
+        numOfFemales_Lbl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        numOfFemales_Lbl.setText("Num. of females: ");
+
+        jScrollPane1.setViewportView(malesNum_Pane);
+
+        jScrollPane3.setViewportView(femalesNum_Pane);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -70,9 +89,19 @@ public class PlayerListFrame extends javax.swing.JFrame {
                         .addGap(125, 125, 125)
                         .addComponent(playerListLbl))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(numOfMales_Lbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(numOfFemales_Lbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,9 +109,21 @@ public class PlayerListFrame extends javax.swing.JFrame {
                 .addComponent(playerListLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UpdateBtn)
-                .addGap(5, 5, 5)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numOfMales_Lbl)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numOfFemales_Lbl)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(106, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,6 +172,15 @@ public class PlayerListFrame extends javax.swing.JFrame {
             }
             isAccepted = false;
         }
+        
+        System.out.println(playersInfo.getNumOfMales());
+        String numOfMales = Integer.toString(playersInfo.getNumOfMales());
+        malesNum_Pane.setText(numOfMales);
+        
+        System.out.println(playersInfo.getNumOfFemales());
+        String numOfFemales = Integer.toString(playersInfo.getNumOfFemales());
+        femalesNum_Pane.setText(numOfFemales);
+        
     }//GEN-LAST:event_UpdateBtnActionPerformed
 
     /**
@@ -171,8 +221,14 @@ public class PlayerListFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton UpdateBtn;
     private javax.swing.JTextPane display_Pane;
+    private javax.swing.JTextPane femalesNum_Pane;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextPane malesNum_Pane;
+    private javax.swing.JLabel numOfFemales_Lbl;
+    private javax.swing.JLabel numOfMales_Lbl;
     private javax.swing.JLabel playerListLbl;
     // End of variables declaration//GEN-END:variables
 }

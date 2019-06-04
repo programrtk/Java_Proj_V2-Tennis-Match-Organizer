@@ -83,41 +83,11 @@ public class Runner{
         
         //this creates a file and writes a list of each player's information to it
         writeToFile();
-        /*
-        try{
-            //createFile
-            PrintWriter write = new PrintWriter("PlayerList.txt");
-            System.out.println("\ntest for write in and read from files\n");
-            for(int i = 0; i < team1.getPlayerListLength(); i++)
-            {
-                write.println();
-                write.println(team1.getPlayer(i));
-            }
-            //closefile
-            write.close();
-            
-        }catch(IOException e){
-            System.out.println("IO Exception");
-        }*/
         
         
         //this reads the contents of the file created above
         readFromFile();
-        /*
-        try{
-            
-            FileReader file = new FileReader("PlayerList.txt");
-            BufferedReader read = new BufferedReader(file);
-            
-            while(read.readLine() != null)
-            {
-                System.out.println(read.readLine());
-            }
-            read.close();
-            
-        }catch(IOException e){
-            System.out.println("File is not found");
-        }*/
+        
         
         
         
