@@ -1,6 +1,6 @@
 
-player1, one, m
+player1 one m
 
-player2, two, f
+player2 two f
 
-player3, three, m
+player3 three m

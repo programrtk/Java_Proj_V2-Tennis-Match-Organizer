@@ -33,18 +33,12 @@ public class Player extends PlayerInfo{
         super(lastName, firstName, gender);
     }
     
-    public Player(String playerInfo){
-        super
-    }
-    
-    
     public String toString(){
-        return getLastName()+", "+ getFirstName()+", "+getGender();
+        return getLastName()+" "+ getFirstName()+" "+getGender();
     }
-    
     
     public String displayPlayerInfo() {
-        return getLastName()+", "+ getFirstName()+", "+getGender();
+        return getLastName()+" "+ getFirstName()+" "+getGender();
     }
     
 }

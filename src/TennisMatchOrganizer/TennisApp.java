@@ -6,6 +6,7 @@
 package TennisMatchOrganizer;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +21,7 @@ public class TennisApp extends javax.swing.JFrame {
     
     private ArrayList<Player> players;
     
+    private ArrayList<String> players_Data;
     
     private void writeToFile()
     {
@@ -27,12 +29,21 @@ public class TennisApp extends javax.swing.JFrame {
         try{
             //createFile
             PrintWriter write = new PrintWriter("GUI_PlayerList.txt");
-            System.out.println("\ntest for write in and read from files\n");
+            //System.out.println("\ntest for write in and read from files\n");
+            /*for(int i = 0; i < players_Data.size(); i++)
+            {
+                //write.println();
+                write.println(players_Data.get(i));
+                System.out.println(players_Data.get(i));
+            }*/
+            
             for(int i = 0; i < players.size(); i++)
             {
-                write.println();
+                System.out.println("Write to File: "+players.get(i));
+                //write.println();
                 write.println(players.get(i));
             }
+            
             //closefile
             write.close();
             
@@ -40,8 +51,8 @@ public class TennisApp extends javax.swing.JFrame {
             System.out.println("IO Exception");
         }
     }
-    
-    private static void readFromFile()
+
+    /*private void readFromFile()
     {
         //this reads the contents of the file created above
         try{
@@ -58,15 +69,61 @@ public class TennisApp extends javax.swing.JFrame {
         }catch(IOException e){
             System.out.println("File is not found");
         }
+    }*/
+    
+    private void readFromFile()
+    {
+        try{
+            
+            File file = new File("GUI_PlayerList.txt");
+            BufferedReader read = new BufferedReader(new FileReader(file));
+            
+            String aPlayer;
+            while((aPlayer = read.readLine()) != null)
+            {
+                //System.out.println(aPlayer);
+                //players_Data.add(aPlayer);
+                stringToAddPlayer(aPlayer);
+            }
+            read.close();
+            
+            /*
+            System.out.println("Reading from file");
+            for(String a : players_Data){
+                System.out.println(a);
+            }*/
+            
+            }catch(IOException e){
+            System.out.println("File is not found");
+            } 
+                 
     }
     
-    
+    private void stringToAddPlayer(String playerData)
+    {
+        String[] dataPieces = new String[3];
+        String delimiter = " ";
+        
+        System.out.println("Playerdata = "+playerData);
+        
+        dataPieces = playerData.split(delimiter);
+        
+        char gender = dataPieces[2].charAt(0);
+        
+        System.out.println("dataPieces: "+dataPieces[0]+" "+dataPieces[1]+" "+ gender);
+        
+        players.add(new Player(dataPieces[0], dataPieces[1], gender));
+        
+        
+    }
+
     /**
      * Creates new form TennisApp
      */
     public TennisApp() {
         initComponents();
         players = new ArrayList<Player>();
+        players_Data = new ArrayList<String>();
     }
 
     /**
@@ -212,7 +269,8 @@ public class TennisApp extends javax.swing.JFrame {
         String gender = genderFld.getText();
         if(firstName.length() > 0 && lastName.length() > 0 && gender.length() > 0){
             players.add(new Player(firstName, lastName, gender.charAt(0)));
-            writeToFile();
+            players_Data.add(firstName +" "+ lastName+" "+ gender.charAt(0));
+            //writeToFile();
         }else{
             System.out.println("Fill all the boxes");
         }
@@ -220,6 +278,7 @@ public class TennisApp extends javax.swing.JFrame {
 
     private void viewPlayersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPlayersBtnActionPerformed
         // TODO add your handling code here:
+        writeToFile();
         new PlayerListFrame().setVisible(true);
     }//GEN-LAST:event_viewPlayersBtnActionPerformed
 
@@ -253,8 +312,29 @@ public class TennisApp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TennisApp().setVisible(true);
+                TennisApp tennisApp = new TennisApp();
+                tennisApp.setVisible(true);
+                tennisApp.readFromFile();
+                
+                //this reads from data in text file and adds it to the list called players_Data
+                /*try{
+            
+            File file = new File("GUI_PlayerList.txt");
+            BufferedReader read = new BufferedReader(new FileReader(file));
+            
+            String aPlayer;
+            while((aPlayer = read.readLine()) != null)
+            {
+                System.out.println(aPlayer);
+                
             }
+            read.close();
+            
+            }catch(IOException e){
+            System.out.println("File is not found");
+            } */
+                
+                }
         });
     }
 
