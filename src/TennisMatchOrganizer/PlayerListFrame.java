@@ -18,6 +18,8 @@ import java.util.ArrayList;
 public class PlayerListFrame extends javax.swing.JFrame {
 
     private ArrayList<String> players;
+    static boolean isAccepted = true;
+    
     /**
      * Creates new form PlayerListFrame
      */
@@ -101,6 +103,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //display_Pane.removeAll();
         //display_Pane.repaint();
+        
         try{
             
             File file = new File("GUI_PlayerList.txt");
@@ -118,14 +121,16 @@ public class PlayerListFrame extends javax.swing.JFrame {
         }catch(IOException e){
             System.out.println("File is not found");
         }
-        String allPlayers = "";
-        for(String p : players)
-        {
-            allPlayers += p + "\n";
-            display_Pane.setText(allPlayers);
-            //Player_JList.add(p, );
-        }
         
+        String allPlayers = "";
+        if (isAccepted) {
+            for (String p : players) {
+                allPlayers += p + "\n";
+                display_Pane.setText(allPlayers);
+
+            }
+            isAccepted = false;
+        }
     }//GEN-LAST:event_UpdateBtnActionPerformed
 
     /**

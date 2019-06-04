@@ -46,7 +46,7 @@ public class Match{
         return player1FirstName +" vs. "+ player2FirstName +"; at location: "+location +", date: "+date+", time: "+time;
     }
     
-    public String toStringWinner()
+    public String printWinner()
     {
         return player1FirstName +" vs. "+ player2FirstName+"; The winner is: "+winner;
     }

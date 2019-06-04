@@ -41,4 +41,16 @@ public class Player extends PlayerInfo{
         return getLastName()+" "+ getFirstName()+" "+getGender();
     }
     
+    public boolean isMale() {
+        if(getGender() == 'm'){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int age() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

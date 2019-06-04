@@ -57,7 +57,7 @@ public class Team implements Groupable{
         System.out.println("\nHere is a list of players on the team: ");
         for(int i = 0; i < playerList.size(); i++)
         {
-            System.out.println(playerList.get(i).displayPlayerInfo());
+            System.out.println(playerList.get(i).displayPlayerInfo() + "; isMale = "+playerList.get(i).isMale());
         }
     }
     
@@ -75,7 +75,7 @@ public class Team implements Groupable{
         System.out.println("\nHere is a list of winners of each match");
         for(int i = 0; i < matchWinner.size(); i++)
         {
-            System.out.println(matchWinner.get(i).toStringWinner());
+            System.out.println(matchWinner.get(i).printWinner());
         }
     }
    

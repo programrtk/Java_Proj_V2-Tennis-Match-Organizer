@@ -47,6 +47,8 @@ package TennisMatchOrganizer;
     
     public abstract String displayPlayerInfo();
     
+    public abstract boolean isMale();
     
+    public abstract int age();
     
 }
