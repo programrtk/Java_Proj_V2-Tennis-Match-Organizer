@@ -23,8 +23,8 @@ public class TennisApp extends javax.swing.JFrame {
     
     static boolean isViewed = false;
     
-    private int numOfMales;
-    private int numOfFemales;
+    private static int numOfMales;
+    private static int numOfFemales;
     
     //private ArrayList<String> players_Data;
     
@@ -96,9 +96,7 @@ public class TennisApp extends javax.swing.JFrame {
     public TennisApp() {
         initComponents();
         players = new ArrayList<Player>();
-        //players_Data = new ArrayList<String>();
-        numOfMales = 0;
-        numOfFemales = 0;
+        //players_Data = new ArrayList<String>();       
     }
 
     /**
@@ -254,30 +252,33 @@ public class TennisApp extends javax.swing.JFrame {
     private void viewPlayersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPlayersBtnActionPerformed
         // TODO add your handling code here:
         writeToFile();
-        if(!isViewed){
-            new PlayerListFrame().setVisible(true);
-            isViewed = true;
-        }
-        for(int i = 0; i < players.size(); i++){
-            if(players.get(i).isMale()){
-                numOfMales++;
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).isMale()) {
+                numOfMales = numOfMales + 1;
                 System.out.println("Male added");
-            }else if(players.get(i).isFemale()){
-                numOfFemales++;
+            } else if (players.get(i).isFemale()) {
+                numOfFemales = numOfFemales + 1;
                 System.out.println("Female added");
             }
+        }
+        System.out.println("males: " + numOfMales);
+        System.out.println("females: " + numOfFemales);
+
+        if (!isViewed) {
+            new PlayerListFrame().setVisible(true);
+            isViewed = true;
         }
     }//GEN-LAST:event_viewPlayersBtnActionPerformed
 
     public int getNumOfMales()
     {
-        System.out.println(numOfMales);
+        System.out.println("getNumOfMales: "+numOfMales);
         return numOfMales;
     }
     
     public int getNumOfFemales()
     {
-        System.out.println(numOfFemales);
+        System.out.println("getNumOfFemales: "+numOfFemales);
         return numOfFemales;
     }
     
