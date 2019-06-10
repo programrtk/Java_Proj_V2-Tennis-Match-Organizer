@@ -17,6 +17,30 @@ public class MatchScheduler extends javax.swing.JFrame {
     public MatchScheduler() {
         initComponents();
     }
+    
+    //Sumit created this GIU and worked on this method
+    public void comboBoxUpdate(){
+        Winner_CombBox1.removeAllItems();
+        Winner_CombBox1.addItem("Choose Winner");
+        Winner_CombBox1.addItem(Player1_Lbl.getText());
+        Winner_CombBox1.addItem(Player2_Lbl.getText());
+        
+        Winner_CombBox2.removeAllItems();
+        Winner_CombBox2.addItem("Choose Winner");
+        Winner_CombBox2.addItem(Player3_Lbl.getText());
+        Winner_CombBox2.addItem(Player4_Lbl.getText());
+        
+        Winner_CombBox3.removeAllItems();
+        Winner_CombBox3.addItem("Choose Winner");
+        Winner_CombBox3.addItem(Player5_Lbl.getText());
+        Winner_CombBox3.addItem(Player6_Lbl.getText());
+    }
+    
+    //Sumit created this GIU and worked on this method
+    public void playerLbl_update(){
+        TennisApp tennisApp = new TennisApp();
+        Player1_Lbl.setText(tennisApp.getPlayerFirstName(0));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,7 +56,6 @@ public class MatchScheduler extends javax.swing.JFrame {
         Winner_CombBox1 = new javax.swing.JComboBox();
         Winner_CombBox2 = new javax.swing.JComboBox();
         Winner_CombBox3 = new javax.swing.JComboBox();
-        Winner_CombBox4 = new javax.swing.JComboBox();
         ChooseWinner_Lbl = new javax.swing.JLabel();
         Player1_Lbl = new javax.swing.JLabel();
         Player2_Lbl = new javax.swing.JLabel();
@@ -40,8 +63,6 @@ public class MatchScheduler extends javax.swing.JFrame {
         Player4_Lbl = new javax.swing.JLabel();
         Player5_Lbl = new javax.swing.JLabel();
         Player6_Lbl = new javax.swing.JLabel();
-        Player7_Lbl = new javax.swing.JLabel();
-        Player8_Lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,12 +70,15 @@ public class MatchScheduler extends javax.swing.JFrame {
         MatchScheduler_Lbl.setText("Match Scheduler");
 
         Winner_CombBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Winner_CombBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Winner_CombBox1ActionPerformed(evt);
+            }
+        });
 
         Winner_CombBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         Winner_CombBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        Winner_CombBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         ChooseWinner_Lbl.setText("Choose Winner");
 
@@ -76,59 +100,49 @@ public class MatchScheduler extends javax.swing.JFrame {
         Player6_Lbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         Player6_Lbl.setText("Player6");
 
-        Player7_Lbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Player7_Lbl.setText("Player7");
-
-        Player8_Lbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Player8_Lbl.setText("Player8");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MatchScheduler_Lbl)
-                .addGap(105, 105, 105))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Player1_Lbl)
                     .addComponent(Player3_Lbl)
-                    .addComponent(Player5_Lbl)
-                    .addComponent(Player7_Lbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                    .addComponent(Player5_Lbl))
+                .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Player2_Lbl)
-                            .addComponent(Player4_Lbl)
-                            .addComponent(Player6_Lbl))
-                        .addGap(59, 59, 59)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Winner_CombBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(Winner_CombBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Winner_CombBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Winner_CombBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(ChooseWinner_Lbl)
-                                .addGap(9, 9, 9))))
-                    .addComponent(Player8_Lbl))
+                    .addComponent(Player4_Lbl)
+                    .addComponent(Player2_Lbl)
+                    .addComponent(Player6_Lbl))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Winner_CombBox2, 0, 119, Short.MAX_VALUE)
+                    .addComponent(Winner_CombBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Winner_CombBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(MatchScheduler_Lbl)
+                        .addGap(105, 105, 105))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(ChooseWinner_Lbl)
+                        .addGap(57, 57, 57))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(MatchScheduler_Lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(ChooseWinner_Lbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Winner_CombBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Player2_Lbl)
                     .addComponent(Player1_Lbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Winner_CombBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Player4_Lbl)
@@ -138,11 +152,6 @@ public class MatchScheduler extends javax.swing.JFrame {
                     .addComponent(Winner_CombBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Player6_Lbl)
                     .addComponent(Player5_Lbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Player7_Lbl)
-                    .addComponent(Winner_CombBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Player8_Lbl))
                 .addGap(74, 74, 74))
         );
 
@@ -159,6 +168,10 @@ public class MatchScheduler extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Winner_CombBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Winner_CombBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +203,12 @@ public class MatchScheduler extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MatchScheduler().setVisible(true);
+                MatchScheduler matchSchedule = new MatchScheduler();
+                matchSchedule.setVisible(true);
+                matchSchedule.playerLbl_update();
+                matchSchedule.comboBoxUpdate();
+                
+//new MatchScheduler().setVisible(true);
             }
         });
     }
@@ -204,12 +222,9 @@ public class MatchScheduler extends javax.swing.JFrame {
     private javax.swing.JLabel Player4_Lbl;
     private javax.swing.JLabel Player5_Lbl;
     private javax.swing.JLabel Player6_Lbl;
-    private javax.swing.JLabel Player7_Lbl;
-    private javax.swing.JLabel Player8_Lbl;
     private javax.swing.JComboBox Winner_CombBox1;
     private javax.swing.JComboBox Winner_CombBox2;
     private javax.swing.JComboBox Winner_CombBox3;
-    private javax.swing.JComboBox Winner_CombBox4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

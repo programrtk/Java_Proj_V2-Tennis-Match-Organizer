@@ -187,10 +187,10 @@ public class PlayerListFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_UpdateBtnActionPerformed
 
-    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {                                      
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         display_Pane.setText("");
-        
+
         PrintWriter write;
         try {
             write = new PrintWriter("GUI_PlayerList.txt");
@@ -199,7 +199,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PlayerListFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }        
+    }         
     
     /**
      * @param args the command line arguments
