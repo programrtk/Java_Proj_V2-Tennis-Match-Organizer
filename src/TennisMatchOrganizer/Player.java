@@ -56,6 +56,8 @@ public class Player extends PlayerInfo implements Comparable<Player>{
         return false;
     }
     
+    
+    //isaac did this
     public void setWins(int w) {
     	wins = w;
     }
@@ -69,6 +71,8 @@ public class Player extends PlayerInfo implements Comparable<Player>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    //isaac did this
 	@Override
 	public int compareTo(Player o) {
 		if(getWins() < o.getWins()) return 1;
