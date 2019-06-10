@@ -56,6 +56,10 @@ public class Player extends PlayerInfo implements Comparable<Player>{
         return false;
     }
     
+    public void setWins(int w) {
+    	wins = w;
+    }
+    
     public int getWins() {
     	return wins;
     }
