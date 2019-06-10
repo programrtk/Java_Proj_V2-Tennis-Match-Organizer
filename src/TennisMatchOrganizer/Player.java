@@ -9,11 +9,12 @@ package TennisMatchOrganizer;
  *
  * @author guptas5279
  */
-public class Player extends PlayerInfo{
+public class Player extends PlayerInfo implements Comparable<Player>{
     
     private String lastName = "";
     private String firstName = "";
     private char gender = 'M';
+    private int wins = 0;
     
     /*
     private String email = "";
@@ -54,10 +55,21 @@ public class Player extends PlayerInfo{
         }
         return false;
     }
+    
+    public int getWins() {
+    	return wins;
+    }
 
     @Override
     public int age() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+	@Override
+	public int compareTo(Player o) {
+		if(getWins() > o.getWins()) return 1;
+		else if(getWins() < o.getWins()) return -1;
+		else return toString().compareTo(o.toString());
+	}
     
 }
