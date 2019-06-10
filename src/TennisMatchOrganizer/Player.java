@@ -71,8 +71,8 @@ public class Player extends PlayerInfo implements Comparable<Player>{
 
 	@Override
 	public int compareTo(Player o) {
-		if(getWins() > o.getWins()) return 1;
-		else if(getWins() < o.getWins()) return -1;
+		if(getWins() < o.getWins()) return 1;
+		else if(getWins() > o.getWins()) return -1;
 		else return toString().compareTo(o.toString());
 	}
     
