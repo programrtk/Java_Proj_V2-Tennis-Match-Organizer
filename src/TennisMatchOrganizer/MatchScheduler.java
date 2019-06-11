@@ -135,7 +135,8 @@ public class MatchScheduler extends javax.swing.JFrame {
 
         MatchScheduler_Lbl.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         MatchScheduler_Lbl.setText("Match Scheduler");
-
+        
+        //ISAAC ADDED ACTION LISTENERS
         Winner_CombBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Winner_CombBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,9 +145,19 @@ public class MatchScheduler extends javax.swing.JFrame {
         });
 
         Winner_CombBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
+        Winner_CombBox2.addActionListener(new java.awt.event.ActionListener() {
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
+        		Winner_CombBox2ActionPerformed(evt);
+        	}
+        });
+        
         Winner_CombBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
+        Winner_CombBox3.addActionListener(new java.awt.event.ActionListener() {
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
+        		Winner_CombBox3ActionPerformed(evt);
+        	}
+        });
+        
         ChooseWinner_Lbl.setText("Choose Winner");
 
         Player1_Lbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -235,10 +246,38 @@ public class MatchScheduler extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    //isaac did these action listeners
     private void Winner_CombBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox1ActionPerformed
         // TODO add your handling code here:
+    	String player = (String)Winner_CombBox1.getSelectedItem();
+    	for(Player p : players) {
+    		if(p.getFirstName().equals(player)) {
+    			p.setWins(p.getWins()+1);
+    		}
+    	}
     }//GEN-LAST:event_Winner_CombBox1ActionPerformed
+    
+    private void Winner_CombBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox2ActionPerformed
+        // TODO add your handling code here:
+    	String player = (String)Winner_CombBox2.getSelectedItem();
+    	for(Player p : players) {
+    		if(p.getFirstName().equals(player)) {
+    			p.setWins(p.getWins()+1);
+    		}
+    	}
+    }//GEN-LAST:event_Winner_CombBox2ActionPerformed
+    
+    private void Winner_CombBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox3ActionPerformed
+        // TODO add your handling code here:
+    	String player = (String)Winner_CombBox3.getSelectedItem();
+    	for(Player p : players) {
+    		if(p.getFirstName().equals(player)) {
+    			p.setWins(p.getWins()+1);
+    		}
+    	}
+    }//GEN-LAST:event_Winner_CombBox3ActionPerformed
 
     /**
      * @param args the command line arguments
