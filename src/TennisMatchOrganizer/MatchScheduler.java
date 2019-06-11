@@ -30,7 +30,7 @@ public class MatchScheduler extends javax.swing.JFrame {
             String aPlayer;
             while((aPlayer = read.readLine()) != null)
             {
-                //System.out.println(aPlayer);
+                System.out.println(aPlayer);
                 stringToAddPlayer(aPlayer);
             }
             read.close();
