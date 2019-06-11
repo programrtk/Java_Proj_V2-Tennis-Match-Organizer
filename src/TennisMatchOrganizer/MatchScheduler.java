@@ -5,21 +5,80 @@
  */
 package TennisMatchOrganizer;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
  * @author guptas5279
  */
 public class MatchScheduler extends javax.swing.JFrame {
-	
-	TennisApp tennisApp;
-	
+    
+    private ArrayList<Player> players;
+    
+    //Sumit added this
+    private void readFromFile()
+    {
+        try{
+            
+            File file = new File("GUI_PlayerList.txt");
+            BufferedReader read = new BufferedReader(new FileReader(file));
+            
+            String aPlayer;
+            while((aPlayer = read.readLine()) != null)
+            {
+                //System.out.println(aPlayer);
+                stringToAddPlayer(aPlayer);
+            }
+            read.close();
+            
+            }catch(IOException e){
+            System.out.println("File is not found");
+            } 
+                 
+    }
+    
+    private void stringToAddPlayer(String playerData)
+    {
+        String[] dataPieces = new String[3];
+        String delimiter = " ";
+        
+        System.out.println("Playerdata = "+playerData);
+        
+        dataPieces = playerData.split(delimiter);
+        
+        char gender = dataPieces[2].charAt(0);
+        
+        System.out.println("dataPieces: "+dataPieces[0]+" "+dataPieces[1]+" "+ gender);
+        
+        players.add(new Player(dataPieces[0], dataPieces[1], gender));
+        
+    }
+    
+    //Sumit added this
+    public String getPlayerFirstName(int i)
+    {
+        return players.get(i-1).getLastName();
+    }
+    
     /**
      * Creates new form MatchScheduler
      */
-    public MatchScheduler(TennisApp ta) {
+    
+    public MatchScheduler() {
         initComponents();
-        tennisApp = ta;
+        players = new ArrayList<Player>();
     }
+    
+    
+    /*public MatchScheduler(TennisApp te) {
+        initComponents();
+        tennisApp = te;
+    }*/
+
     
     //Sumit created this GIU and worked on this method
     public void comboBoxUpdate(){
@@ -41,8 +100,13 @@ public class MatchScheduler extends javax.swing.JFrame {
     
     //Sumit created this GIU and worked on this method
     public void playerLbl_update(){
-        TennisApp tennisApp = new TennisApp();
-        Player1_Lbl.setText(tennisApp.getPlayerFirstName(0));
+        Player1_Lbl.setText(getPlayerFirstName(1));
+        Player2_Lbl.setText(getPlayerFirstName(2));
+        Player3_Lbl.setText(getPlayerFirstName(1));
+        Player4_Lbl.setText(getPlayerFirstName(3));
+        Player5_Lbl.setText(getPlayerFirstName(2));
+        Player6_Lbl.setText(getPlayerFirstName(3));
+        
     }
 
     /**
@@ -80,19 +144,9 @@ public class MatchScheduler extends javax.swing.JFrame {
         });
 
         Winner_CombBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Winner_CombBox2.addActionListener(new java.awt.event.ActionListener() {
-        	public void actionPerformed(java.awt.event.ActionEvent evt) {
-        		Winner_CombBox2ActionPerformed(evt);
-        	}
-        });
 
         Winner_CombBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Winner_CombBox3.addActionListener(new java.awt.event.ActionListener() {
-        	public void actionPerformed(java.awt.event.ActionEvent evt) {
-        		Winner_CombBox3ActionPerformed(evt);
-        	}
-        });
-        
+
         ChooseWinner_Lbl.setText("Choose Winner");
 
         Player1_Lbl.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -184,33 +238,7 @@ public class MatchScheduler extends javax.swing.JFrame {
 
     private void Winner_CombBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox1ActionPerformed
         // TODO add your handling code here:
-    	String player = (String)Winner_CombBox1.getSelectedItem();
-    	for(Player p : tennisApp.getPlayers()) {
-    		if(p.getFirstName().equals(player)) {
-    			p.setWins(p.getWins()+1);
-    		}
-    	}
     }//GEN-LAST:event_Winner_CombBox1ActionPerformed
-    
-    private void Winner_CombBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox2ActionPerformed
-        // TODO add your handling code here:
-    	String player = (String)Winner_CombBox2.getSelectedItem();
-    	for(Player p : tennisApp.getPlayers()) {
-    		if(p.getFirstName().equals(player)) {
-    			p.setWins(p.getWins()+1);
-    		}
-    	}
-    }//GEN-LAST:event_Winner_CombBox2ActionPerformed
-    
-    private void Winner_CombBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox3ActionPerformed
-        // TODO add your handling code here:
-    	String player = (String)Winner_CombBox3.getSelectedItem();
-    	for(Player p : tennisApp.getPlayers()) {
-    		if(p.getFirstName().equals(player)) {
-    			p.setWins(p.getWins()+1);
-    		}
-    	}
-    }//GEN-LAST:event_Winner_CombBox3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,10 +270,13 @@ public class MatchScheduler extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                //Sumit added some things in here
                 MatchScheduler matchSchedule = new MatchScheduler();
+                matchSchedule.readFromFile();
                 matchSchedule.setVisible(true);
                 matchSchedule.playerLbl_update();
                 matchSchedule.comboBoxUpdate();
+                
                 
 //new MatchScheduler().setVisible(true);
             }
