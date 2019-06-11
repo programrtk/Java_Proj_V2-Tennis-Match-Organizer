@@ -5,20 +5,22 @@
  */
 package TennisMatchOrganizer;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author guptas5279
  */
 public class MatchScheduler extends javax.swing.JFrame {
 	
-	TennisApp tennisApp;
+	ArrayList<Player> players;
 	
     /**
      * Creates new form MatchScheduler
      */
-    public MatchScheduler(TennisApp ta) {
+    public MatchScheduler(ArrayList<Player> p) {
         initComponents();
-        tennisApp = ta;
+        players = p;
     }
     
     //Sumit created this GIU and worked on this method
@@ -185,7 +187,7 @@ public class MatchScheduler extends javax.swing.JFrame {
     private void Winner_CombBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox1ActionPerformed
         // TODO add your handling code here:
     	String player = (String)Winner_CombBox1.getSelectedItem();
-    	for(Player p : tennisApp.getPlayers()) {
+    	for(Player p : players) {
     		if(p.getFirstName().equals(player)) {
     			p.setWins(p.getWins()+1);
     		}
@@ -195,7 +197,7 @@ public class MatchScheduler extends javax.swing.JFrame {
     private void Winner_CombBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox2ActionPerformed
         // TODO add your handling code here:
     	String player = (String)Winner_CombBox2.getSelectedItem();
-    	for(Player p : tennisApp.getPlayers()) {
+    	for(Player p : players) {
     		if(p.getFirstName().equals(player)) {
     			p.setWins(p.getWins()+1);
     		}
@@ -205,7 +207,7 @@ public class MatchScheduler extends javax.swing.JFrame {
     private void Winner_CombBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Winner_CombBox3ActionPerformed
         // TODO add your handling code here:
     	String player = (String)Winner_CombBox3.getSelectedItem();
-    	for(Player p : tennisApp.getPlayers()) {
+    	for(Player p : players) {
     		if(p.getFirstName().equals(player)) {
     			p.setWins(p.getWins()+1);
     		}
