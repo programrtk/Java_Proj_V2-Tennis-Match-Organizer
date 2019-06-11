@@ -253,7 +253,7 @@ public class MatchScheduler extends javax.swing.JFrame {
         // TODO add your handling code here:
     	String player = (String)Winner_CombBox1.getSelectedItem();
     	for(Player p : players) {
-    		if(p.getFirstName().equals(player)) {
+    		if(p.getLastName().equals(player)) {
     			p.setWins(p.getWins()+1);
     		}
     	}
@@ -263,7 +263,7 @@ public class MatchScheduler extends javax.swing.JFrame {
         // TODO add your handling code here:
     	String player = (String)Winner_CombBox2.getSelectedItem();
     	for(Player p : players) {
-    		if(p.getFirstName().equals(player)) {
+    		if(p.getLastName().equals(player)) {
     			p.setWins(p.getWins()+1);
     		}
     	}
@@ -273,7 +273,7 @@ public class MatchScheduler extends javax.swing.JFrame {
         // TODO add your handling code here:
     	String player = (String)Winner_CombBox3.getSelectedItem();
     	for(Player p : players) {
-    		if(p.getFirstName().equals(player)) {
+    		if(p.getLastName().equals(player)) {
     			p.setWins(p.getWins()+1);
     		}
     	}
