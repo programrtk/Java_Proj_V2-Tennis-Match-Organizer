@@ -320,6 +320,10 @@ public class TennisApp extends javax.swing.JFrame {
                 }
         });
     }
+    
+    public ArrayList<Player> getPlayers(){
+    	return players;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TitleLbl;
