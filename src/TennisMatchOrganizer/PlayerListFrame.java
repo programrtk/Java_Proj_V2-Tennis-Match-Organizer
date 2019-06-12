@@ -227,7 +227,10 @@ public class PlayerListFrame extends javax.swing.JFrame {
     private void goToMatchScheduler_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToMatchScheduler_BtnActionPerformed
         // TODO add your handling code here:
         if (!isViewed) {
-            new MatchScheduler().setVisible(true);
+        	MatchScheduler matchSchedule = new MatchScheduler();
+            matchSchedule.setVisible(true);
+            matchSchedule.playerLbl_update();
+            matchSchedule.comboBoxUpdate();
             isViewed = true;
         }
     }//GEN-LAST:event_goToMatchScheduler_BtnActionPerformed

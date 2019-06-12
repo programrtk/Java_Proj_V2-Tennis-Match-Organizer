@@ -74,6 +74,7 @@ public class MatchScheduler extends javax.swing.JFrame {
     public MatchScheduler() {
         initComponents();
         players = new ArrayList<Player>();
+        readFromFile();
     }
     
     
