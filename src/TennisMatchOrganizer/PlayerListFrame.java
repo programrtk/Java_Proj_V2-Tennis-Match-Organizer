@@ -57,7 +57,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
         malesNum_Pane = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         femalesNum_Pane = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
+        Clear_btn = new javax.swing.JButton();
         goToMatchScheduler_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,10 +84,10 @@ public class PlayerListFrame extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(femalesNum_Pane);
 
-        jButton1.setText("Clear");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Clear_btn.setText("Clear");
+        Clear_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Clear_btnActionPerformed(evt);
             }
         });
 
@@ -123,7 +123,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
                                 .addComponent(numOfFemales_Lbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1)
+                            .addComponent(Clear_btn)
                             .addComponent(goToMatchScheduler_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -147,7 +147,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
                             .addComponent(numOfFemales_Lbl)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(Clear_btn)
                         .addGap(24, 24, 24)
                         .addComponent(goToMatchScheduler_Btn)))
                 .addContainerGap())
@@ -210,7 +210,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_UpdateBtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clear_btnActionPerformed
         // TODO add your handling code here:
         display_Pane.setText("");
 
@@ -222,12 +222,12 @@ public class PlayerListFrame extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PlayerListFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Clear_btnActionPerformed
 
     private void goToMatchScheduler_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToMatchScheduler_BtnActionPerformed
         // TODO add your handling code here:
         if (!isViewed) {
-        	MatchScheduler matchSchedule = new MatchScheduler();
+            MatchScheduler matchSchedule = new MatchScheduler();
             matchSchedule.setVisible(true);
             matchSchedule.playerLbl_update();
             matchSchedule.comboBoxUpdate();
@@ -272,11 +272,11 @@ public class PlayerListFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Clear_btn;
     private javax.swing.JButton UpdateBtn;
     private javax.swing.JTextPane display_Pane;
     private javax.swing.JTextPane femalesNum_Pane;
     private javax.swing.JButton goToMatchScheduler_Btn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
