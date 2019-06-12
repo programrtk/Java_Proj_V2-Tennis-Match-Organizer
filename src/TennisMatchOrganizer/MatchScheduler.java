@@ -101,7 +101,7 @@ public class MatchScheduler extends javax.swing.JFrame {
         Winner_CombBox3.addItem(Player6_Lbl.getText());
     }
     
-    //Sumit created this GIU and worked on this method
+    //Sumit created this GUI and worked on this method
     public void playerLbl_update(){
         Player1_Lbl.setText(getPlayerFirstName(1));
         Player2_Lbl.setText(getPlayerFirstName(2));
