@@ -6,6 +6,7 @@
 package TennisMatchOrganizer;
 
 import java.io.BufferedReader;
+import java.lang.Math;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -20,7 +21,7 @@ public class TennisApp extends javax.swing.JFrame {
 
     
     private ArrayList<Player> players;
-    
+    private ArrayList<Integer>elo;
     static boolean isViewed = false;
     
     private static int numOfMales;
@@ -96,6 +97,7 @@ public class TennisApp extends javax.swing.JFrame {
     public TennisApp() {
         initComponents();
         players = new ArrayList<Player>();
+        elo=new ArrayList<Integer>();
         //players_Data = new ArrayList<String>();       
     }
 
@@ -230,7 +232,21 @@ public class TennisApp extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void calculateElo() {
+    	double avgWins=0;
+    	for(Player p:players) {
+    		avgWins+=p.getWins();
+    	}
+    	avgWins/=(double)players.size();
+    	double standDev=0;
+    	for(Player p: players) {
+    		standDev=Math.pow(p.getWins()-avgWins, 2);
+    	}
+    	standDev=Math.sqrt(standDev/players.size());
+    	for(Player p: players) {
+    		elo.add((int)Math.round(200*Math.pow(2,((p.getWins()-avgWins)/standDev))));
+    	}
+    }
     private void firstNameFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameFldActionPerformed
@@ -263,7 +279,9 @@ public class TennisApp extends javax.swing.JFrame {
         }
         System.out.println("males: " + numOfMales);
         System.out.println("females: " + numOfFemales);
-
+        for(int a:elo) {
+        	System.out.println("Elo: "+a);
+        }
         if (!isViewed) {
             new PlayerListFrame().setVisible(true);
             isViewed = true;

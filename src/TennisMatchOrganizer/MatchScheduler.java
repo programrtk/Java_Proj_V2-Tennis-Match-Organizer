@@ -78,6 +78,7 @@ public class MatchScheduler extends javax.swing.JFrame {
     public MatchScheduler() {
         initComponents();
         players = new ArrayList<Player>();
+        readFromFile();
     }
     
     
@@ -105,7 +106,7 @@ public class MatchScheduler extends javax.swing.JFrame {
         Winner_CombBox3.addItem(Player6_Lbl.getText());
     }
     
-    //Sumit created this GIU and worked on this method
+    //Sumit created this GUI and worked on this method
     public void playerLbl_update(){
         Player1_Lbl.setText(getPlayerFirstName(1));
         Player2_Lbl.setText(getPlayerFirstName(2));
@@ -148,11 +149,6 @@ public class MatchScheduler extends javax.swing.JFrame {
         MatchScheduler_Lbl.setText("Match Scheduler");
 
         Winner_CombBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-//        Winner_CombBox1.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                //Winner_CombBox1ActionPerformed(evt);
-//            }
-//        });
 
         Winner_CombBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -186,8 +182,18 @@ public class MatchScheduler extends javax.swing.JFrame {
         });
 
         Done_CheckBox2.setText("Done");
+        Done_CheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Done_CheckBox2ActionPerformed(evt);
+            }
+        });
 
         Done_CheckBox3.setText("Done");
+        Done_CheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Done_CheckBox3ActionPerformed(evt);
+            }
+        });
 
         goToPlayerRank_Btn.setText("See Player Ranking");
         goToPlayerRank_Btn.addActionListener(new java.awt.event.ActionListener() {
@@ -353,6 +359,8 @@ public class MatchScheduler extends javax.swing.JFrame {
         
     }//GEN-LAST:event_goToPlayerRank_BtnActionPerformed
 
+    
+    //isaaac did this
     private void Done_CheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Done_CheckBox1ActionPerformed
         // TODO add your handling code here:
 		String pl = (String)Winner_CombBox1.getSelectedItem();
@@ -366,6 +374,38 @@ public class MatchScheduler extends javax.swing.JFrame {
 			Winner_CombBox1.setEnabled(false);
 		}else {
 			Done_CheckBox1.setSelected(false);
+		}
+    }//GEN-LAST:event_Done_CheckBox1ActionPerformed
+    
+    private void Done_CheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Done_CheckBox1ActionPerformed
+        // TODO add your handling code here:
+		String pl = (String)Winner_CombBox2.getSelectedItem();
+		boolean b = false;
+		for(Player p : players) {
+			if(p.getLastName().equals(pl)) b = true;
+		}
+		if(b) {
+			Done_CheckBox2.setEnabled(false);
+			Winner_CombBox2ActionPerformed(evt);
+			Winner_CombBox2.setEnabled(false);
+		}else {
+			Done_CheckBox2.setSelected(false);
+		}
+    }//GEN-LAST:event_Done_CheckBox1ActionPerformed
+    
+    private void Done_CheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Done_CheckBox1ActionPerformed
+        // TODO add your handling code here:
+		String pl = (String)Winner_CombBox1.getSelectedItem();
+		boolean b = false;
+		for(Player p : players) {
+			if(p.getLastName().equals(pl)) b = true;
+		}
+		if(b) {
+			Done_CheckBox3.setEnabled(false);
+			Winner_CombBox3ActionPerformed(evt);
+			Winner_CombBox3.setEnabled(false);
+		}else {
+			Done_CheckBox3.setSelected(false);
 		}
     }//GEN-LAST:event_Done_CheckBox1ActionPerformed
 
