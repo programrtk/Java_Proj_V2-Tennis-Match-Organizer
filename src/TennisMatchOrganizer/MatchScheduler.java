@@ -5,7 +5,6 @@
  */
 package TennisMatchOrganizer;
 
-import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -142,7 +141,7 @@ public class MatchScheduler extends javax.swing.JFrame {
         Winner_CombBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Winner_CombBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //Winner_CombBox1ActionPerformed(evt);
+                Winner_CombBox1ActionPerformed(evt);
             }
         });
 
@@ -171,22 +170,6 @@ public class MatchScheduler extends javax.swing.JFrame {
         Player6_Lbl.setText("Player6");
 
         Done_CheckBox1.setText("Done");
-        Done_CheckBox1.addActionListener(new java.awt.event.ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				Winner_CombBox1ActionPerformed(e);
-				((javax.swing.JTextField)Winner_CombBox1.getEditor().getEditorComponent()).setEditable(false);
-				for(java.awt.Component c : Winner_CombBox1.getComponents()) {
-					javax.swing.AbstractButton button = new javax.swing.JButton();
-					if(c.getClass().equals(button.getClass())) {
-						System.out.println("found that button");
-						c.setEnabled(false);
-					}
-				}
-				for(java.awt.event.MouseListener l : Winner_CombBox1.getMouseListeners()) {
-					Winner_CombBox1.removeMouseListener(l);
-				}
-			}
-        });
 
         Done_CheckBox2.setText("Done");
 
