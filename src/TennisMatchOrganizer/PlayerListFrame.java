@@ -24,6 +24,8 @@ public class PlayerListFrame extends javax.swing.JFrame {
     private ArrayList<String> players;
     static boolean isAccepted = true;
     
+    static boolean isViewed = false;
+    
     TennisApp playersInfo;
     
     /**
@@ -56,6 +58,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         femalesNum_Pane = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
+        goToMatchScheduler_Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +91,13 @@ public class PlayerListFrame extends javax.swing.JFrame {
             }
         });
 
+        goToMatchScheduler_Btn.setText("Schedule Matches here");
+        goToMatchScheduler_Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goToMatchScheduler_BtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,8 +123,9 @@ public class PlayerListFrame extends javax.swing.JFrame {
                                 .addComponent(numOfFemales_Lbl)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                            .addComponent(jButton1)
+                            .addComponent(goToMatchScheduler_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,8 +146,10 @@ public class PlayerListFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(numOfFemales_Lbl)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(24, 24, 24)
+                        .addComponent(goToMatchScheduler_Btn)))
                 .addContainerGap())
         );
 
@@ -211,6 +224,14 @@ public class PlayerListFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void goToMatchScheduler_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToMatchScheduler_BtnActionPerformed
+        // TODO add your handling code here:
+        if (!isViewed) {
+            new MatchScheduler().setVisible(true);
+            isViewed = true;
+        }
+    }//GEN-LAST:event_goToMatchScheduler_BtnActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -251,6 +272,7 @@ public class PlayerListFrame extends javax.swing.JFrame {
     private javax.swing.JButton UpdateBtn;
     private javax.swing.JTextPane display_Pane;
     private javax.swing.JTextPane femalesNum_Pane;
+    private javax.swing.JButton goToMatchScheduler_Btn;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
