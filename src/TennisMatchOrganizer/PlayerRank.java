@@ -5,19 +5,60 @@
  */
 package TennisMatchOrganizer;
 
+import static TennisMatchOrganizer.PlayerListFrame.isAccepted;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
  * @author SumitGaurav
  */
 public class PlayerRank extends javax.swing.JFrame {
 
+    
     /**
-     * Creates new form PlayerRank
+     * Creates new form PlayerRan
+     * k
      */
+    
+    private ArrayList<String> players;
+   
+    
     public PlayerRank() {
         initComponents();
-    }
+        players = new ArrayList<String>();
+        try{
+            
+            File file = new File("GUI_PlayerList.txt");
+            BufferedReader read = new BufferedReader(new FileReader(file));
+            
+            String aPlayer;
+            while((aPlayer = read.readLine()) != null)
+            {
+                System.out.println(aPlayer);
+                players.add(read.readLine());
+                players.add(aPlayer);
+            }
+            read.close();
+            
+        }catch(IOException e){
+            System.out.println("File is not found");
+        }
+        
+        String allPlayers = "";
+        if (isAccepted) {
+            for (String p : players) {
+                allPlayers += p + "\n";
+                jTextPane1.setText(allPlayers);
 
+            }
+            isAccepted = false;
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

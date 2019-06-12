@@ -7,9 +7,13 @@ package TennisMatchOrganizer;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author guptas5279
@@ -316,13 +320,37 @@ public class MatchScheduler extends javax.swing.JFrame {
     	}
     }//GEN-LAST:event_Winner_CombBox3ActionPerformed
 
-    //Sumit added this method
+    String ret[] = new String[3];
+    private String[] rank() {
+        for (int i = 0; i < 3; i++) {
+            if (players.get(i).getWins() == 2)
+                ret[0] = players.get(i).getLastName();
+            if (players.get(i).getWins() == 1)
+                ret[1] = players.get(i).getLastName();
+            if (players.get(i).getWins() == 0)
+                ret[2] = players.get(i).getLastName();
+            else {}
+        }
+        return ret;
+    }
+
+    //Sumit and Jack added this method
     private void goToPlayerRank_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToPlayerRank_BtnActionPerformed
         // TODO add your handling code here:
+        String ranking[] = rank();
+        PrintWriter write;
+        try {
+            write = new PrintWriter("GUI_PlayerList.txt");
+            write.println(ranking);
+            write.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(PlayerListFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (!isViewed) {
             new PlayerRank().setVisible(true);
             isViewed = true;
         }
+        
     }//GEN-LAST:event_goToPlayerRank_BtnActionPerformed
 
     private void Done_CheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Done_CheckBox1ActionPerformed

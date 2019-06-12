@@ -167,6 +167,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Winner_CombBox2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="Winner_CombBox3">
           <Properties>
@@ -179,6 +182,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Winner_CombBox3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="ChooseWinner_Lbl">
           <Properties>
