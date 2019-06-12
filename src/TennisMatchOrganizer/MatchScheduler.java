@@ -144,11 +144,11 @@ public class MatchScheduler extends javax.swing.JFrame {
         MatchScheduler_Lbl.setText("Match Scheduler");
 
         Winner_CombBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Winner_CombBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Winner_CombBox1ActionPerformed(evt);
-            }
-        });
+//        Winner_CombBox1.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                //Winner_CombBox1ActionPerformed(evt);
+//            }
+//        });
 
         Winner_CombBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -327,17 +327,17 @@ public class MatchScheduler extends javax.swing.JFrame {
 
     private void Done_CheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Done_CheckBox1ActionPerformed
         // TODO add your handling code here:
-    	Winner_CombBox1ActionPerformed(evt);
-		((javax.swing.JTextField)Winner_CombBox1.getEditor().getEditorComponent()).setEditable(false);
-		for(java.awt.Component c : Winner_CombBox1.getComponents()) {
-			javax.swing.AbstractButton button = new javax.swing.JButton();
-			if(c.getClass().equals(button.getClass())) {
-				System.out.println("found that button");
-				c.setEnabled(false);
-			}
+		String pl = (String)Winner_CombBox1.getSelectedItem();
+		boolean b = false;
+		for(Player p : players) {
+			if(p.getLastName().equals(pl)) b = true;
 		}
-		for(java.awt.event.MouseListener l : Winner_CombBox1.getMouseListeners()) {
-			Winner_CombBox1.removeMouseListener(l);
+		if(b) {
+			Done_CheckBox1.setEnabled(false);
+			Winner_CombBox1ActionPerformed(evt);
+			Winner_CombBox1.setEnabled(false);
+		}else {
+			Done_CheckBox1.setSelected(false);
 		}
     }//GEN-LAST:event_Done_CheckBox1ActionPerformed
 
