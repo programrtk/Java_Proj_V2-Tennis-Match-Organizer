@@ -91,6 +91,11 @@
                       </Group>
                   </Group>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                  <Component id="goToPlayerRank_Btn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -120,7 +125,9 @@
                       <Component id="Player5_Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Done_CheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="goToPlayerRank_Btn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -230,6 +237,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Done"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Done_CheckBox1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="Done_CheckBox2">
           <Properties>
@@ -240,6 +250,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Done"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="goToPlayerRank_Btn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="See Player Ranking"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="goToPlayerRank_BtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -1,3 +1,3 @@
-player1 one m
-player2 two f
-player3 three m
+Sumit Gupta m
+Jack Bao m
+Tim O'Brien m
