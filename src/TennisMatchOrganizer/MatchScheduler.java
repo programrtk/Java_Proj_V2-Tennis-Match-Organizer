@@ -327,6 +327,18 @@ public class MatchScheduler extends javax.swing.JFrame {
 
     private void Done_CheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Done_CheckBox1ActionPerformed
         // TODO add your handling code here:
+    	Winner_CombBox1ActionPerformed(evt);
+		((javax.swing.JTextField)Winner_CombBox1.getEditor().getEditorComponent()).setEditable(false);
+		for(java.awt.Component c : Winner_CombBox1.getComponents()) {
+			javax.swing.AbstractButton button = new javax.swing.JButton();
+			if(c.getClass().equals(button.getClass())) {
+				System.out.println("found that button");
+				c.setEnabled(false);
+			}
+		}
+		for(java.awt.event.MouseListener l : Winner_CombBox1.getMouseListeners()) {
+			Winner_CombBox1.removeMouseListener(l);
+		}
     }//GEN-LAST:event_Done_CheckBox1ActionPerformed
 
     /**
