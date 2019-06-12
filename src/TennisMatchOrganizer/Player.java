@@ -60,7 +60,6 @@ public class Player extends PlayerInfo implements Comparable<Player>{
     //isaac did this
     public void setWins(int w) {
     	wins = w;
-    	System.out.println(lastName + " wins: " + w);
     }
     
     public int getWins() {
