@@ -1,3 +1,3 @@
-player1 lastname m
-player2 lastname m
+player1 lastname f
 player3 lastname m
+player2 lastname m
