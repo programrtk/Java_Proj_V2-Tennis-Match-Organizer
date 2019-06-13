@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -328,26 +329,24 @@ public class MatchScheduler extends javax.swing.JFrame {
 
     String ret[] = new String[3];
     private String[] rank() {
+    	ArrayList<Player> sorted = (ArrayList<Player>)players.clone();
+    	Collections.sort(sorted);
         for (int i = 0; i < 3; i++) {
-            if (players.get(i).getWins() == 2)
-                ret[0] = players.get(i).getLastName();
-            if (players.get(i).getWins() == 1)
-                ret[1] = players.get(i).getLastName();
-            if (players.get(i).getWins() == 0)
-                ret[2] = players.get(i).getLastName();
-            else {}
+            ret[i] = sorted.get(i).getLastName() + " "+ sorted.get(i).getFirstName() + " " + sorted.get(i).getGender();
         }
         return ret;
     }
 
-    //Sumit and Jack added this method
+    //Sumit and Jack added this method // isaac edited this method
     private void goToPlayerRank_BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToPlayerRank_BtnActionPerformed
         // TODO add your handling code here:
         String ranking[] = rank();
         PrintWriter write;
         try {
             write = new PrintWriter("GUI_PlayerList.txt");
-            write.println(ranking);
+            for(String s : ranking) {
+            	write.println(s);
+            }
             write.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PlayerListFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -360,7 +359,7 @@ public class MatchScheduler extends javax.swing.JFrame {
     }//GEN-LAST:event_goToPlayerRank_BtnActionPerformed
 
     
-    //isaaac did this
+    //isaac did these
     private void Done_CheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Done_CheckBox1ActionPerformed
         // TODO add your handling code here:
 		String pl = (String)Winner_CombBox1.getSelectedItem();

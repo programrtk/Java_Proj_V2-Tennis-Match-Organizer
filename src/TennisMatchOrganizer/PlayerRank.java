@@ -5,7 +5,6 @@
  */
 package TennisMatchOrganizer;
 
-import static TennisMatchOrganizer.PlayerListFrame.isAccepted;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -23,6 +22,8 @@ public class PlayerRank extends javax.swing.JFrame {
      * Creates new form PlayerRan
      * k
      */
+	
+	private static boolean isAccepted = true;
     
     private ArrayList<String> players;
    
@@ -39,7 +40,6 @@ public class PlayerRank extends javax.swing.JFrame {
             while((aPlayer = read.readLine()) != null)
             {
                 System.out.println(aPlayer);
-                players.add(read.readLine());
                 players.add(aPlayer);
             }
             read.close();
